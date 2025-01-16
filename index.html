@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻译接口示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h2>文本翻译接口</h2>
+            <p>URL: <code>http://零距离.top/translate_text</code></p>
+            <p>请求方法: <code>POST</code></p>
+            <p>请求体示例 (JSON):</p>
+            <pre class="code">{
+    "text": "Hello, World!",
+    "dest": "zh-CN",
+    "src": "en"
+}</pre>
+            <p>返回示例 (JSON):</p>
+            <pre class="code">{
+    "translated_text": "你好，世界！"
+}</pre>
+            <p>试用链接:</p>
+            <p><code>curl -X POST http://127.0.0.1:5000/translate_text -H "Content-Type: application/json" -d '{"text": "Hello, World!", "dest": "zh-CN", "src": "en"}'</code></p>
+        </div>
+        
+        <div class="section">
+            <h2>图片翻译接口</h2>
+            <p>URL: <code>http://零距离.top/translate_images</code></p>
+            <p>请求方法: <code>POST</code></p>
+            <p>请求体示例 (JSON):</p>
+            <pre class="code">{
+    "image_urls": ["https://i.imgur.com/3IwV34Q.png", "https://i.imgur.com/4IwV34Q.png"],
+    "dest": "zh-CN"
+}</pre>
+            <p>返回示例 (JSON):</p>
+            <pre class="code">{
+    "translated_texts": [
+        "int main() {\nthread_pool pool(2);\nauto worker =\nasync(pool, [] {\nfor(size_t i = 0; i < 10; i++) {\nasync(pool, [] {\nthread_local int count = 0;\n\nstd::this_thread::sleep_for(1s);\nstd::cout\n\n<< \"工作线程:\" << std::this_thread::get_id()\n<< \"\tcount:\" << count++ << std::endl;\n\nstd::this_thread::sleep_for(5ms);\n\n});\n}\n});\n\nreturn worker.get();\n}",
+        "线程ID是16064\n睡眠num是100\n线程ID是7600"
+    ]
+}</pre>
+            <p>试用链接:</p>
+            <p><code>curl -X POST http://127.0.0.1:5000/translate_images -H "Content-Type: application/json" -d '{"image_urls": ["https://i.imgur.com/3IwV34Q.png", "https://i.imgur.com/4IwV34Q.png"], "dest": "zh-CN"}'</code></p>
+        </div>
+    </div>
+</body>
+</html>
