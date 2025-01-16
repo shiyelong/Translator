@@ -58,4 +58,4 @@ def translate_images():
     return json.dumps({'translated_texts': translated_texts}, ensure_ascii=False, indent=2)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
